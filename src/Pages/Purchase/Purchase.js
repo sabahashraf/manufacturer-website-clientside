@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const Purchase = () => {
+  const [user] = useAuthState(auth);
   const { id } = useParams();
   const [selectedTool, setSelectedTool] = useState({});
 
@@ -14,6 +17,7 @@ const Purchase = () => {
   }, []);
   const [quantity, setQuantity] = useState(3);
   const [error, setError] = useState("");
+
   const handleQuantity = (e) => {
     if (
       e.target.value > selectedTool.minQty ||
@@ -68,16 +72,20 @@ const Purchase = () => {
         <form className="form-control">
           <input
             type="text"
-            value="sabah"
             class="input input-bordered input-accent w-full max-w-sm mx-auto mb-3"
             name="name"
+            value={user?.displayName || ""}
+            readOnly
+            disabled
           />
           <input
             type="email"
-            value="sabah@mail.com"
+            value={user?.email || ""}
             class="input input-bordered input-accent w-full max-w-sm
             mx-auto mb-3 "
             name="email"
+            readOnly
+            disabled
           />
           <input
             type="text"
@@ -89,21 +97,30 @@ const Purchase = () => {
             placeholder="address"
             class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
           />
-          <div className="flex w-1/6 mx-auto">
-            <p className="items-center">Qty:</p>
+          <div className="flex mx-auto justify-center  items-center ">
+            <p className="pr-3">Qty:</p>
             <input
               type="text"
               value={quantity}
               name="quantity"
-              class="input input-bordered input-accent w-1/2 max-w-xs  mx-auto mb-3"
+              class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
               onChange={handleQuantity}
             />
           </div>
           {error && <p className="text-red-500 text-center">{error}</p>}
+          <div className="flex mx-auto justify-center  items-center ">
+            <p className="pr-3">Total Price:</p>
+            <input
+              type="text"
+              placeholder="address"
+              class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
+              value={selectedTool.price * quantity}
+            />
+          </div>
           <button
             type="submit"
             disabled={error}
-            className=" btn btn-secondary w-full max-w-sm  mx-auto"
+            className=" btn btn-secondary w-full max-w-sm  mx-auto my-12"
           >
             Place order
           </button>
