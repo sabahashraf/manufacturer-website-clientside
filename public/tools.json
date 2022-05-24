@@ -1,0 +1,84 @@
+[{
+    "name":"Metal Paint tray",
+    "img":"https://i.ibb.co/0czSHry/metal-tray-1.jpg",
+    "minQty":2,
+    "availableQty":200,
+    "price":10,
+    "description":"The paint tray you choose will determine a lot about the type of paint job you do. The tray does not have to be anything special, but we do recommend that it has a hook or legs that allow you to hook it onto the ladder when you are painting higher surfaces"
+
+},
+{
+    "name":"Tape reel",
+    "img":"https://i.ibb.co/bFrRNXG/tape-reel-1.jpg",
+    "minQty":3,
+    "availableQty":300,
+    "price":8,
+    "description":"The tape reel is a simpler and more convenient way to apply the tape. And we all know that if something is simpler and more convenient, it is more likely that we will do it and do it well."
+
+},
+{
+    "name":"Painter Tape",
+    "img":"https://i.ibb.co/RN0w0Dn/painter-s-tape-1.jpg",
+    "minQty":3,
+    "availableQty":350,
+    "price":3,
+    "description":"which is usually blue tape, is easily applied to walls and door frames. Paint will not leak through it or bleed behind it, and once you have finished painting, it can be easily removed from the wall to leave you with sharp edges and a great looking paint finish."
+
+},
+{
+    "name":"Pouring Spout",
+    "img":"https://i.ibb.co/pnphK5f/pouring-spout-1.jpg",
+    "minQty":3,
+    "availableQty":350,
+    "price":3,
+    "description":"A pouring spout may not sound like an essential item. After all, the paint tin has a hole in the top and you can pour paint from there. But if you have ever done this, you will know the dangers of paint drops and the likelihood of paint blotches on the carpet."
+
+},
+{
+    "name":"Brushes",
+    "img":"https://i.ibb.co/Fbkg1k4/brushes-1.jpg",
+    "minQty":3,
+    "availableQty":350,
+    "price":4,
+    "description":"Even if you roller the walls and ceiling, you will need brushes to apply finishing touches and for gloss work. Do not try and cut corners with poor quality brushes, or you will find that you end up with more bristles on the paint than are left on the brush at the end of the job. Get flat and angled brushes to cover all eventualities."
+
+},
+{
+    "name":"Measuring Tape",
+    "img":"https://i.ibb.co/0JRBVDs/tape-measure-1.jpg",
+    "minQty":2,
+    "availableQty":350,
+    "price":4,
+    "description":"There are plenty of occasions when you need a tape measure. You will want to know the size of the area that you are painting, to ensure that you have the right amount of paint. To calculate this, you will need a tape measure."
+
+},
+{
+    "name":"Paint pail",
+    "img":"https://i.ibb.co/54kGpbC/paint-pail-1.jpg",
+    "minQty":2,
+    "availableQty":350,
+    "price":4,
+    "description":"The small paint pail is a small bucket that holds paint. It offers the convenience of not having to climb up and down the ladder whenever you need more paint, and it is lightweight enough that you can carry it without suffering user fatigue."
+
+},
+{
+    "name":"Drywall Knife",
+    "img":"https://i.ibb.co/zRMgLMS/drywall-knife-1.jpg",
+    "minQty":2,
+    "availableQty":350,
+    "price":4,
+    "description":"A drywall taping knife slots under the baseboard. You can then paint without danger of getting paint on the floor and, once you have finished, simply remove the knife for a clean line and accurate paint. It does the same job as taping the area but is much quicker and more convenient than keep having to tape and untape the spot."
+
+},
+{
+    "name":"Tray Liner",
+    "img":"https://i.ibb.co/BLNsdN2/tray-liner-1.jpg",
+    "minQty":4,
+    "availableQty":300,
+    "price":4,
+    "description":"Some people will argue that these are not essential items, but we disagree. Tray liners are convenient. They make cleaning up much, much easier because all you have to do is remove the liner and throw it away once you have finished. They also enable you to put leftover paint back in the bucket. Some people use grocery bags, but tray liners are designed for the purpose so are stronger and of better quality."
+
+}
+
+
+]
