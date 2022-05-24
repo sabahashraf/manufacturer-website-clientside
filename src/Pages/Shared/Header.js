@@ -20,9 +20,11 @@ const Header = () => {
       <li>
         <Link to="/portfolio">Portfolio</Link>
       </li>
-      <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
       {user ? (
         <button onClick={logout} className="btn btn-ghost">
           Sign Out
