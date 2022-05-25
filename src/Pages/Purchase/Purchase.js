@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
@@ -18,25 +19,50 @@ const Purchase = () => {
   const [quantity, setQuantity] = useState(3);
   const [error, setError] = useState("");
 
-  const handleQuantity = (e) => {
+  const handleQuantity = (event) => {
     if (
-      e.target.value > selectedTool.minQty ||
-      e.target.value < selectedTool.availableQty
+      event.target.value > selectedTool.minQty ||
+      event.target.value < selectedTool.availableQty
     ) {
-      setQuantity(e.target.value);
+      setQuantity(event.target.value);
       setError("");
     }
 
-    if (e.target.value < selectedTool.minQty) {
+    if (event.target.value < selectedTool.minQty) {
       setError(
         `you need to order atleast ${selectedTool.minQty} ${selectedTool.name}`
       );
     }
-    if (e.target.value > selectedTool.availableQty) {
+    if (event.target.value > selectedTool.availableQty) {
       setError(
         `you can't order more than ${selectedTool.availableQty} ${selectedTool.name}`
       );
     }
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const order = {
+      toolName: selectedTool.name,
+      toolQty: event.target.quantity.value,
+      toolPrice: event.target.total.value,
+      toolImg: selectedTool.img,
+      name: user.displayName,
+      email: user.email,
+      address: event.target.address.value,
+      phone: event.target.phone.value,
+    };
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast("Your order has been placed");
+        }
+      });
   };
 
   return (
@@ -69,38 +95,36 @@ const Purchase = () => {
         <h2 className="text-4xl font-bold text-center my-12">
           Place your Order
         </h2>
-        <form className="form-control">
+        <form className="form-control" onSubmit={handleSubmit}>
           <input
             type="text"
             class="input input-bordered input-accent w-full max-w-sm mx-auto mb-3"
-            name="name"
             value={user?.displayName || ""}
-            readOnly
-            disabled
+            name="name"
           />
           <input
             type="email"
-            value={user?.email || ""}
+            value={user?.email}
             class="input input-bordered input-accent w-full max-w-sm
             mx-auto mb-3 "
             name="email"
-            readOnly
-            disabled
           />
           <input
             type="text"
             placeholder="Phone no"
             class="input input-bordered input-accent w-full max-w-sm   mx-auto mb-3"
+            name="phone"
           />
           <input
             type="text"
+            name="address"
             placeholder="address"
             class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
           />
           <div className="flex mx-auto justify-center  items-center ">
             <p className="pr-3">Qty:</p>
             <input
-              type="text"
+              type="number"
               value={quantity}
               name="quantity"
               class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
@@ -114,7 +138,8 @@ const Purchase = () => {
               type="text"
               placeholder="address"
               class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
-              value={selectedTool.price * quantity}
+              value={parseInt(selectedTool.price) * quantity}
+              name="total"
             />
           </div>
           <button
