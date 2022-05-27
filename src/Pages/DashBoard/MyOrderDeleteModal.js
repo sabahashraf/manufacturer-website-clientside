@@ -1,39 +1,40 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteToolModal = ({ deletingTool, refetch, setDeletingTool }) => {
-  const { name, _id } = deletingTool;
+const MyOrderDeleteModal = ({ deletingOrder, setDeletingOrder, refetch }) => {
+  const { toolName, _id } = deletingOrder;
   const handleDelete = () => {
-    fetch(`http://localhost:5000/tool/${_id}`, {
+    fetch(`http://localhost:5000/order/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        "Access-Control-Allow-Origin": true,
       },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast.success(`${name} is deleted`);
-          setDeletingTool(null);
-
+          toast.success(`${toolName} deleted successfully`);
+          setDeletingOrder(null);
           refetch();
         }
       });
   };
   return (
     <div>
-      <input type="checkbox" id="delete-tool-modal" class="modal-toggle" />
+      <input type="checkbox" id="order-delete" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg">
-            Are you sure you want to delete {name} ?
+            Are you sure you want to delete
+            <span className="text-error"> {toolName}</span> ?
           </h3>
 
           <div class="modal-action">
             <button onClick={() => handleDelete()} class="btn btn-sm btn-error">
               Delete
             </button>
-            <label for="delete-tool-modal" class="btn  btn-sm btn-accent">
+            <label for="order-delete" class="btn btn-sm">
               Cancel
             </label>
           </div>
@@ -43,4 +44,4 @@ const DeleteToolModal = ({ deletingTool, refetch, setDeletingTool }) => {
   );
 };
 
-export default DeleteToolModal;
+export default MyOrderDeleteModal;

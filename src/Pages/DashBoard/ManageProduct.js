@@ -5,7 +5,7 @@ import DeleteToolModal from "./DeleteToolModal";
 import ToolRow from "./ToolRow";
 
 const ManageProduct = () => {
-  const { deletingTool, setDeletingTool } = useState(null);
+  const [deletingTool, setDeletingTool] = useState(null);
   const {
     data: tools,
     isLoading,
@@ -46,9 +46,9 @@ const ManageProduct = () => {
       </div>
       {deletingTool && (
         <DeleteToolModal
-          setDeletingTool={setDeletingTool}
           deletingTool={deletingTool}
           refetch={refetch}
+          setDeletingTool={setDeletingTool}
         ></DeleteToolModal>
       )}
     </div>

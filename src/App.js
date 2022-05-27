@@ -22,6 +22,7 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import RequireOnlyUser from "./Pages/Login/RequireOnlyUser";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
+import Payment from "./Pages/DashBoard/Payment";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
               </RequireOnlyUser>
             }
           ></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="addReview"
             element={

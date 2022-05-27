@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const ToolRow = ({ tool, index, refetch, setDeletingTool }) => {
+const ToolRow = ({ tool, index, setDeletingTool }) => {
   const { name, img, availableQty, price } = tool;
 
   return (
@@ -21,7 +21,7 @@ const ToolRow = ({ tool, index, refetch, setDeletingTool }) => {
         <label
           onClick={() => setDeletingTool(tool)}
           for="delete-tool-modal"
-          class="btn  btn-error"
+          class="btn btn-sm btn-error"
         >
           Delete
         </label>
