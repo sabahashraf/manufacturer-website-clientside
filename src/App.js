@@ -23,6 +23,7 @@ import RequireOnlyUser from "./Pages/Login/RequireOnlyUser";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
 import Payment from "./Pages/DashBoard/Payment";
+import ManageOrders from "./Pages/DashBoard/ManageOrders";
 
 function App() {
   return (
@@ -90,6 +91,14 @@ function App() {
             element={
               <RequireAdmin>
                 <ManageProduct></ManageProduct>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageOrders"
+            element={
+              <RequireAdmin>
+                <ManageOrders></ManageOrders>
               </RequireAdmin>
             }
           ></Route>
