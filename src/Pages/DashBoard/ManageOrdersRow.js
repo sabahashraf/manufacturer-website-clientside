@@ -40,8 +40,8 @@ const ManageOrdersRow = ({ order, index, refetch, setDeletingOrder }) => {
         {!order.paid && (
           <label
             onClick={() => setDeletingOrder(order)}
-            for="admin-order-delete"
-            class="btn btn-sm btn-error"
+            htmlFor="admin-order-delete"
+            className="btn btn-sm btn-error"
           >
             Cancel
           </label>

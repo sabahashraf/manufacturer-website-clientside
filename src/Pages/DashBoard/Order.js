@@ -15,7 +15,7 @@ const Order = ({ order, setDeletingOrder }) => {
   } = order; */
 
   return (
-    <div class="card card-side bg-base-100 shadow-xl">
+    <div className="card card-side max-w-lg bg-base-100 shadow-xl">
       <figure>
         <img
           src={order.toolImg}
@@ -24,8 +24,8 @@ const Order = ({ order, setDeletingOrder }) => {
           className="ml-5"
         />
       </figure>
-      <div class="card-body">
-        <h2 class="card-title">{order.toolName}</h2>
+      <div className="card-body">
+        <h2 className="card-title text-secondary">{order.toolName}</h2>
         <p>
           <span className="font-bold pr-2">Qty:</span>
           {order.toolQty}
@@ -35,21 +35,18 @@ const Order = ({ order, setDeletingOrder }) => {
           {order.toolPrice}
         </p>
         <ul>
-          <li>
-            {" "}
-            <span className="bold">Shipping Address:</span>
-          </li>
-          <li>{order.name}</li>
-          <p>{order.address}</p>
-          <p>{order.phone}</p>
-          <p>{order.email}</p>
+          <li className="font-bold"> Shipping Address:</li>
+          <li>Name:{order.name}</li>
+          <p>Address:{order.address}</p>
+          <p>Phone no: {order.phone}</p>
+          <p>Email:{order.email}</p>
         </ul>
-        <div class="card-actions justify-end">
+        <div className="card-actions justify-end">
           {order.toolPrice && !order.paid && (
             <label
               onClick={() => setDeletingOrder(order)}
-              for="order-delete"
-              class="btn btn-sm btn-error"
+              htmlFor="order-delete"
+              className="btn btn-sm btn-error"
             >
               Delete
             </label>
@@ -64,7 +61,9 @@ const Order = ({ order, setDeletingOrder }) => {
               {" "}
               <p>
                 {" "}
-                <span className="text-success ml-3">Paid</span>
+                <span className="text-success font-bold text-xl ml-3">
+                  Paid
+                </span>
               </p>
               <p>
                 Transaction id:

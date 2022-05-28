@@ -19,14 +19,14 @@ const Users = () => {
     return <Loading></Loading>;
   }
   return (
-    <div class="overflow-x-auto">
-      <table class="table w-full">
+    <div className="overflow-x-auto">
+      <table className="table w-full">
         <thead>
           <tr>
             <th></th>
             <th>Email</th>
             <th>Action</th>
-            <th>Favorite Color</th>
+            {/* <th>Favorite Color</th> */}
           </tr>
         </thead>
         <tbody>

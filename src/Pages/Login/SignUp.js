@@ -11,7 +11,10 @@ import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(
+    auth,
+    { sendEmailVerification: true }
+  );
   const {
     register,
     formState: { errors },
@@ -147,7 +150,7 @@ const SignUp = () => {
 
             {signInError}
             <input
-              className="btn w-full btn-accent max-w-xs text-white"
+              className="btn w-full btn-neutral max-w-xs text-white hover:btn-secondary hover:text-white"
               type="submit"
               value="Sign Up"
             />
@@ -163,7 +166,7 @@ const SignUp = () => {
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-accent btn-outline"
+            className="btn btn-neutral hover:btn-secondary btn-outline"
           >
             Continue with Google
           </button>

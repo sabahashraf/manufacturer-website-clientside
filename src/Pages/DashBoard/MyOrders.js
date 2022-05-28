@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
@@ -39,11 +39,10 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h3 className="text-3xl mt-7">
-        Hi,<span className="text-primary font-bold">{user.displayName}</span>
-        ,please pay for your order
+      <h3 className="text-3xl font-bold text-primary my-12 text-center">
+        Please pay for your order
       </h3>
-      <div className="grid grid-cols-1 gap-5 my-40 ">
+      <div className="grid grid-cols-1 gap-5 my-12 ">
         {orders.map((order) => (
           <Order
             key={order._id}

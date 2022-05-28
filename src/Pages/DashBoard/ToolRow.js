@@ -9,8 +9,8 @@ const ToolRow = ({ tool, index, setDeletingTool }) => {
       <th>{index}</th>
       <td>{name}</td>
       <td>
-        <div class="avatar">
-          <div class="mask mask-squircle w-12 h-12">
+        <div className="avatar">
+          <div className="mask mask-squircle w-12 h-12">
             <img src={img} alt={name} />
           </div>
         </div>
@@ -20,8 +20,8 @@ const ToolRow = ({ tool, index, setDeletingTool }) => {
       <td>
         <label
           onClick={() => setDeletingTool(tool)}
-          for="delete-tool-modal"
-          class="btn btn-sm btn-error"
+          htmlFor="delete-tool-modal"
+          className="btn btn-sm btn-error"
         >
           Delete
         </label>

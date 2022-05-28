@@ -15,17 +15,17 @@ const Quote = () => {
           <input
             type="text"
             placeholder="Type here"
-            class="input input-bordered w-full max-w-xs form-control mb-5 mx-auto"
+            className="input input-bordered w-full max-w-xs form-control mb-5 mx-auto"
             name="name"
           />
           <input
             type="email"
             placeholder="Your email"
-            class="input input-bordered w-full max-w-xs form-control mb-5 mx-auto"
+            className="input input-bordered w-full max-w-xs form-control mb-5 mx-auto"
             name="email"
           />
           <textarea
-            class="textarea textarea-bordered w-full max-w-xs form-control mb-5 mx-auto"
+            className="textarea textarea-bordered w-full max-w-xs form-control mb-5 mx-auto"
             placeholder="Message"
             name="message"
           ></textarea>

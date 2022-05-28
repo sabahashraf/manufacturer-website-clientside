@@ -116,7 +116,7 @@ const Login = () => {
 
             {signInError}
             <input
-              className="btn btn-accent w-full max-w-xs text-white"
+              className="btn btn-neutral hover:btn-secondary hover:text-white w-full max-w-xs text-white"
               type="submit"
               value="Login"
             />
@@ -132,7 +132,7 @@ const Login = () => {
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-accent btn-outline"
+            className="btn btn-neutral hover:btn-secondary btn-outline"
           >
             Continue with Google
           </button>

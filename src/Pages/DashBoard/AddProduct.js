@@ -38,50 +38,53 @@ const AddProduct = () => {
       });
   };
   return (
-    <div>
-      <h2 className="text-3xl text-primary my-12 text-center">Add a tool</h2>
+    <div className="flex flex-col  mt-2 mx-auto">
+      <h2 className="text-3xl font-bold text-primary my-12 text-center w-2/3">
+        Add a tool
+      </h2>
       <div className="grid lg:grid-cols-1 gap-3 justify-items-center mt-2">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="mx-auto w-2/3" onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
             placeholder="Tool Name"
-            class="input input-bordered input-primary form-control w-full max-w-md mb-3"
+            className="input input-bordered input-primary form-control w-full max-w-md mb-3"
             {...register("name", { required: true })}
           />
 
           <input
             type="number"
             placeholder="Minimum Quantity"
-            class="input input-bordered input-primary w-full form-control max-w-md mb-3"
+            className="input input-bordered input-primary w-full form-control max-w-md mb-3"
             {...register("minQty", { required: true })}
           />
           <input
             type="number"
             placeholder="Available Quantity"
-            class="input input-bordered input-primary w-full form-control max-w-md mb-3"
+            className="input input-bordered input-primary w-full form-control max-w-md mb-3"
             {...register("availableQty", { required: true })}
           />
           <input
             type="number"
             placeholder="Price/unit"
-            class="input input-bordered form-control input-primary w-full max-w-md mb-3"
+            className="input input-bordered form-control input-primary w-full max-w-md mb-3"
             {...register("price", { required: true })}
           />
           <input
             type="text"
             placeholder="Image"
-            class="input input-bordered input-primary form-control w-full max-w-md mb-3"
+            className="input input-bordered input-primary form-control w-full max-w-md mb-3"
             {...register("img", { required: true })}
           />
           <textarea
             type="text"
             placeholder=" Tool Details"
-            class="textarea textarea-primary form-control w-full mb-3 max-w-md"
+            className="textarea textarea-primary form-control w-full mb-3 max-w-md"
             {...register("description", { required: true })}
           />
+
           <input
             type="submit"
-            className="btn btn-primary w-full max-w-md"
+            className="btn btn-neutral text-white w-full max-w-md mb-12 mt-5"
             value="Add"
           />
         </form>

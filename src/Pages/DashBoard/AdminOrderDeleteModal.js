@@ -26,19 +26,22 @@ const AdminOrderDeleteModal = ({
   };
   return (
     <div>
-      <input type="checkbox" id="admin-order-delete" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">
+      <input type="checkbox" id="admin-order-delete" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">
             Are you sure you want to delete
             <span className="text-error"> {toolName}</span> ?
           </h3>
 
-          <div class="modal-action">
-            <button onClick={() => handleDelete()} class="btn btn-sm btn-error">
+          <div className="modal-action">
+            <button
+              onClick={() => handleDelete()}
+              className="btn btn-sm btn-error"
+            >
               Delete
             </button>
-            <label for="admin-order-delete" class="btn btn-sm">
+            <label htmlFor="admin-order-delete" className="btn btn-sm">
               Cancel
             </label>
           </div>

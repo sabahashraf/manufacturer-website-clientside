@@ -18,9 +18,11 @@ const ManageProduct = () => {
   }
   return (
     <div>
-      <h2 className="text-2xl text-center ">Manage product</h2>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <h2 className="text-3xl font-bold text-primary my-12 text-center">
+        Manage product
+      </h2>
+      <div className="overflow-x-auto mb-12">
+        <table className="table w-full ">
           <thead>
             <tr>
               <th></th>

@@ -23,11 +23,11 @@ const ManageOrders = () => {
   }
   return (
     <div>
-      <h2 className="text-2xl text-cussess text-center my-12 font-bold">
+      <h2 className="text-3xl font-bold text-primary my-12 text-center">
         Manage Customer Orders
       </h2>
-      <div class="overflow-x-auto">
-        <table class="table table-compact w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-compact w-full">
           <thead>
             <tr>
               <th></th>

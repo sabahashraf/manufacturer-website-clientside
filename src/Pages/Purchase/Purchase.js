@@ -67,12 +67,12 @@ const Purchase = () => {
 
   return (
     <div>
-      <div class="card lg:card-side bg-base-100 my-20">
+      <div className="card lg:card-side bg-base-100 my-20">
         <figure>
           <img src={selectedTool.img} alt="Album" />
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">{selectedTool.name}</h2>
+        <div className="card-body">
+          <h2 className="card-title">{selectedTool.name}</h2>
           <p>
             <span className="font-bold">Details:</span>
             {selectedTool.description}
@@ -98,28 +98,28 @@ const Purchase = () => {
         <form className="form-control" onSubmit={handleSubmit}>
           <input
             type="text"
-            class="input input-bordered input-accent w-full max-w-sm mx-auto mb-3"
+            className="input input-bordered input-accent w-full max-w-sm mx-auto mb-3"
             value={user?.displayName || ""}
             name="name"
           />
           <input
             type="email"
             value={user?.email}
-            class="input input-bordered input-accent w-full max-w-sm
+            className="input input-bordered input-accent w-full max-w-sm
             mx-auto mb-3 "
             name="email"
           />
           <input
             type="text"
             placeholder="Phone no"
-            class="input input-bordered input-accent w-full max-w-sm   mx-auto mb-3"
+            className="input input-bordered input-accent w-full max-w-sm   mx-auto mb-3"
             name="phone"
           />
           <input
             type="text"
             name="address"
             placeholder="address"
-            class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
+            className="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
           />
           <div className="flex mx-auto justify-center  items-center ">
             <p className="pr-3">Qty:</p>
@@ -127,7 +127,7 @@ const Purchase = () => {
               type="number"
               value={quantity}
               name="quantity"
-              class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
+              className="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
               onChange={handleQuantity}
             />
           </div>
@@ -137,7 +137,7 @@ const Purchase = () => {
             <input
               type="text"
               placeholder="address"
-              class="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
+              className="input input-bordered input-accent w-full max-w-sm  mx-auto mb-3"
               value={parseInt(selectedTool.price) * quantity}
               name="total"
             />

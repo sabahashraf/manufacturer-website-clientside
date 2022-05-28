@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const MyProfile = () => {
   const {
@@ -30,14 +32,33 @@ const MyProfile = () => {
         });
     }
   }, [user]);
+  /*  const email = user?.email;
+  const {
+    data: userInfo,
+    isLoading,
+    refetch,
+  } = useQuery(
+    ["userInfo", email],
+    fetch(`http://localhost:5000/user?email=${email}`, {
+      method: "Get",
+
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading></Loading>;
+  } */
+
   const onSubmit = (data) => {
     const email = userInfo?.email;
     if (email) {
       fetch(`http://localhost:5000/user/${email}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "content-type": "application/json",
-          //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(data),
       })
@@ -45,92 +66,136 @@ const MyProfile = () => {
         .then((result) => {
           if (result) {
             toast.success("Succesfully updated your profile");
+            reset();
           }
         });
     }
   };
   return (
-    <div>
-      <h2 className="text-3xl text-primary my-12 text-center">My Profile</h2>
-      <div className="grid lg:grid-cols-1 gap-3 justify-items-center mt-2">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-control w-full max-w-xs">
+    <div className="">
+      <div>
+        <h2 className="text-3xl font-bold text-primary my-12 text-center w-2/3">
+          {" "}
+          Your Profile
+        </h2>
+        <ul className="mx-auto w-2/3">
+          {userInfo?.name && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Name: </span>
+              {userInfo.name}
+            </li>
+          )}
+          {userInfo?.email && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Email: </span>
+              {userInfo.email}
+            </li>
+          )}
+          {userInfo?.education && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Education: </span>
+              {userInfo.education}
+            </li>
+          )}
+          {userInfo?.location && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Location: </span>
+              {userInfo.location}
+            </li>
+          )}
+          {userInfo?.phone && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Phone no:</span>
+              {userInfo.phone}
+            </li>
+          )}
+          {userInfo?.linkedin && (
+            <li>
+              <span className="text-lg font-semibold mb-2">Linkedin: </span>
+              {userInfo.linkedin}
+            </li>
+          )}
+        </ul>
+      </div>
+      <div className="flex flex-col  mt-2 mx-auto">
+        <h2 className="text-3xl font-bold text-primary my-12 text-center w-2/3">
+          {" "}
+          Feel Free To Update Your Profile
+        </h2>
+        <form className="mx-auto w-2/3" onSubmit={handleSubmit(onSubmit)}>
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Name:</span>
+              <span className="text-xl mr-2">Name:</span>
             </label>
             <input
               type="text"
               placeholder="Your name"
               value={userInfo?.name}
-              class="input input-bordered input-primary  w-full max-w-md mb-3"
+              className="input input-bordered input-primary  w-full max-w-sm mb-3"
               {...register("name")}
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Email:</span>
+              <span className="text-xl mr-2">Email:</span>
             </label>
 
             <input
               type="email"
-              value={userInfo.email}
-              class="input input-bordered input-primary w-full  max-w-md mb-3"
+              value={userInfo?.email}
+              className="input input-bordered input-primary  w-full  max-w-sm mb-3"
               {...register("email")}
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Education:</span>
+              <span className="text-xl mr-2">Education:</span>
             </label>
             <input
               type="text"
               placeholder="Education"
-              value={userInfo?.education}
-              class="input input-bordered input-primary w-full max-w-md mb-3"
+              className="input input-bordered input-primary w-full max-w-sm mb-3"
               {...register("education")}
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Location:</span>
+              <span className="text-xl mr-2">Location:</span>
             </label>
 
             <input
               type="text"
               placeholder="Location"
-              value={userInfo?.location}
-              class="input input-bordered  input-primary w-full max-w-md mb-3"
+              className="input input-bordered  input-primary w-full max-w-sm mb-3"
               {...register("location")}
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Phone no:</span>
+              <span className="text-xl mr-2">Phone no:</span>
             </label>
             <input
               type="text"
               placeholder="Phone"
-              value={userInfo?.phone}
-              class="input input-bordered input-primary  w-full max-w-md mb-3"
+              className="input input-bordered input-primary  w-full max-w-sm mb-3"
               {...register("phone")}
             />
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="  w-full max-w-lg">
             <label className="label">
-              <span className="label-text">Linkedin Link:</span>
+              <span className="text-xl mr-2">Linkedin Link:</span>
             </label>
             <input
               type="text"
               placeholder="Linkedin Link"
-              value={userInfo?.linkedin}
-              class="input input-bordered input-primary  w-full max-w-md mb-3"
+              className="input input-bordered input-primary  w-full max-w-sm mb-3"
               {...register("linkedin")}
             />
           </div>
 
           <input
             type="submit"
-            className="btn btn-primary w-full max-w-md mb-12"
+            className="btn btn-neutral text-white w-full max-w-sm mb-12 mt-5"
             value="Update"
           />
         </form>
